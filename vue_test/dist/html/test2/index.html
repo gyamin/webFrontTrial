@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>vue test2</title>
+</head>
+<body>
+    <main>
+        <h2>app1</h2>
+        <div id="app1">
+            <div v-bind:class="{ active: isActive }">div1</div>
+            <div class="static"
+                 v-bind:class="{ active: isActive, 'text-danger': hasError }">
+                div2
+            </div>
+            <button v-on:click="changeIsActive">isActive切り替え</button>
+            <button v-on:click="changeHasError">hasError切り替え</button>
+        </div>
+
+        <h2>app2</h2>
+        <div id="app2">
+            <div v-bind:class="classObject">app2 test1</div>
+            <button v-on:click="changeIsActive">isActive切り替え</button>
+            <button v-on:click="changeHasError">hasError切り替え</button>
+        </div>
+
+        <h2>app3</h2>
+        <div id="app3">
+            <div v-bind:class="[activeClass, errorClass]">app3 test1</div>
+            <div v-bind:class="[{ active: isActive }, errorClass]">app3 test2</div>
+            <button v-on:click="changeIsActive">isActive切り替え</button>
+        </div>
+
+        <h2>app4</h2>
+        <a href="https://jp.vuejs.org/v2/guide/class-and-style.html#%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%81%AE%E3%83%90%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0">インラインスタイルのバインディング</a>
+        <div id="app4">
+            <div v-bind:style="styleObject">app4 test1</div>
+        </div>
+
+    </main>
+
+
+
+    <script src="../../javascripts/test2/index.bundle.js"></script>
+
+    <style>
+        .active {
+            color: red;
+        }
+        .text-danger {
+            font-style: italic;
+        }
+    </style>
+</body>
+</html>

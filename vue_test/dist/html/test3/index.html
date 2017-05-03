@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>条件付きレンダリング v-if</title>
+</head>
+<body>
+    <main>
+        <h2>app1</h2>
+        <div id="app1">
+            <h1 v-if="ok">Yes</h1>
+            <h1 v-else>No</h1>
+
+            <!--
+            v-if はディレクティブなので、単一の要素に付加する必要があります。1 要素よりも多くの要素と切り替えたい場合は<template>を利用できる
+            -->
+            <template v-if="ok">
+                <h1>Title</h1>
+                <p>Paragraph 1</p>
+                <p>Paragraph 2</p>
+            </template>
+
+
+            <input v-model="type">タイプを指定する
+            <div v-if="type === 'A'">
+                A
+            </div>
+            <div v-else-if="type === 'B'">
+                B
+            </div>
+            <div v-else-if="type === 'C'">
+                C
+            </div>
+            <div v-else>
+                Not A/B/C
+            </div>
+        </div>
+
+        <hr>
+        <h2>app2</h2>
+        <div id="app2">
+            <select v-model="loginType">
+                <option value="username">ユーザ名</option>
+                <option value="hoge">ユーザ名でない</option>
+            </select>
+            <br>
+
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </template>
+            <br>
+
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username" key="username-input">
+            </template>
+            <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address" key="email-input">
+            </template>
+
+            <h3 v-show="ok">Hello!</h3>
+        </div>
+
+    </main>
+    <script src="../../javascripts/test3/index.bundle.js"></script>
+</body>
+</html>
