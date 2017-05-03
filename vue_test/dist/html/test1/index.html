@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>vue test</title>
+</head>
+<body>
+    <main>
+        <div id="app1">
+            {{ message }}
+            <test1-comp></test1-comp>
+            <local1-comp></local1-comp>
+        </div>
+
+        <div id="app2">
+            <p>{{ message }}</p>
+            <input v-model="message">
+        </div>
+
+        <div id="app3">
+            <ul>
+                <todo-item v-for="item in languages" v-bind:todo="item"></todo-item>
+            </ul>
+            <p v-if="seen">Now you see me</p>
+            <button v-on:click="changeSeenVal">seen変更</button>
+        </div>
+
+        <div id="app4">
+            <p>Original message: "{{ message }}"</p>
+            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        </div>
+    </main>
+    <script src="../../javascripts/test1/index.bundle.js"></script>
+</body>
+</html>
