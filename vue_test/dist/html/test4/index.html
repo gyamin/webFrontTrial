@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>リストレンダリング</title>
+</head>
+<body>
+    <main>
+        <div id="app1">
+            <ul>
+                <li v-for="item in items">
+                    {{ item.message }}
+                </li>
+            </ul>
+
+            <ul>
+                <template v-for="item in items">
+                    <li>{{ item.message }}</li>
+                    <li class="divider">テンプレート利用</li>
+                </template>
+            </ul>
+
+            <div>
+                <li v-for="value in person">
+                    {{ value }}
+                </li>
+            </div>
+            <div v-for="(value, key, index) in person">
+                {{ index }}. {{ key }} : {{ value }}
+            </div>
+        </div>
+
+        <hr>
+
+        <div id="app2">
+            <li v-for="item in items" v-if="!item.invalid">
+                {{ item.message }}
+            </li>
+            <hr>
+            <li v-for="item in items" v-if="!item.invalid" :key="item.id">
+                {{ item.message }}
+            </li>
+
+            <input v-model="workItem">
+            <button v-on:click="addItem">追加</button>
+            <button v-on:click="sort">並び替え</button>
+        </div>
+
+    </main>
+    <script src="../../javascripts/test4/index.bundle.js"></script>
+</body>
+</html>

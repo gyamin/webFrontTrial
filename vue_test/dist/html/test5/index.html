@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>イベントハンドリング</title>
+</head>
+<body>
+    <div id="example-1">
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+    </div>
+
+
+    <div id="example-2">
+        <!-- `greet` は、あらかじめ定義したメソッドの名前 -->
+        <button v-on:click="greet">Greet</button>
+
+        <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+            Submit
+        </button>
+
+        <input v-on:keyup.enter="show('ENTER')" v-on:keyup.space="show('SPACE')">
+    </div>
+
+    <hr>
+
+    <div id="example-3">
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+
+        <span>Multiline message is:</span>
+        <p style="white-space: pre">{{ message2 }}</p>
+        <br>
+        <textarea v-model="message2" placeholder="add multiple lines"></textarea>
+    </div>
+
+    <hr>
+
+    <!-- チェックボックス -->
+    <div id="example-4">
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <br>
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+    </div>
+
+    <hr>
+
+    <!-- ラジオ -->
+    <div id="example-5">
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+    </div>
+
+    <hr>
+
+    <!-- セレクトボックス -->
+    <div id="example-6">
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+
+        <select v-model="selectedMulti" multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected: {{ selectedMulti }}</span>
+    </div>
+    <div id="example-7">
+        <select v-model="selectedList">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+
+    <script src="../../javascripts/test5/index.bundle.js"></script>
+</body>
+</html>
