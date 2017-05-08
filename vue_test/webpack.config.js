@@ -8,7 +8,8 @@ module.exports = [
             "test2/index": './src/javascript/test2/entry.js',
             "test3/index": './src/javascript/test3/entry.js',
             "test4/index": './src/javascript/test4/entry.js',
-            "test5/index": './src/javascript/test5/entry.js'
+            "test5/index": './src/javascript/test5/entry.js',
+            "test6/index": './src/javascript/test6/entry.js'
         },
         output: {
             path: __dirname + '/dist/javascripts/',
@@ -26,7 +27,7 @@ module.exports = [
                     }
                 },
                 {
-                    test: /\.vue$/, loader: 'vue'
+                    test: /\.vue$/, loader: 'vue-loader'
                 }
             ]
         },
