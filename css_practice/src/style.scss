@@ -1,0 +1,44 @@
+body {
+  .header {
+
+      display: flex;
+      .logo {
+        font-size: 3rem;
+        width: 200px;
+      }
+      .menu {
+        ul {
+          margin: 8px;
+          padding: 0;
+          display: flex;
+          li {
+            margin: 4px;
+            padding: 8px;
+            font-size: 1.4rem;
+            list-style: none;
+          }
+        }
+      }
+      .hamburger-menu {
+        display: none;
+      }
+    }
+
+  @media screen and (max-width: 480px) {
+    .header {
+
+      display: flex;
+      .logo {
+        font-size: 3rem;
+        width: 200px;
+      }
+      .menu {
+        display: none;
+      }
+      .hamburger-menu {
+        display: block;
+      }
+    }
+  }
+}
+
